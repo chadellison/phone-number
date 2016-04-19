@@ -11,17 +11,18 @@ function PhoneNumber(raw_number) {
   }
 
   this.areaCode = function() {
-    return raw_number.substring(0, 3)
+    return firstThree(raw_number)
   }
 
   this.toString = function() {
-    return "(" + raw_number.substring(0, 3) +
-     ")" +
-      " " +
+    return "(" + firstThree(raw_number) + ")" + " " +
        raw_number.substring(3, 6) +
-        "-" +
-         raw_number.substring(6, 10)
+        "-" + raw_number.substring(6, 10)
   }
+}
+
+function firstThree(number) {
+  return number.substring(0, 3)
 }
 
 module.exports = PhoneNumber
